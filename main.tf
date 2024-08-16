@@ -8,6 +8,10 @@ terraform {
       source  = "conradludgate/spotify"
     }
   }
+
+  backend "s3" {
+    
+  }
 }
 
 provider "spotify" {
@@ -15,10 +19,22 @@ provider "spotify" {
 }
 
 data "spotify_search_track" "by_artist" {
-  artist = "Dolly Parton"
+  artist = "m.anifest"
   #  album = "Jolene"
   #  name  = "Early Morning Breeze"
 }
+
+# resource "spotify_playlist" "playlist" {
+#   name        = "Terraform Summer Playlist"
+#   description = "This playlist was created by Terraform"
+#   public      = true
+
+#   tracks = [
+#     data.spotify_search_track.by_artist.tracks[0].id,
+#     data.spotify_search_track.by_artist.tracks[1].id,
+#     data.spotify_search_track.by_artist.tracks[2].id,
+#   ]
+# }
 
 resource "spotify_playlist" "playlist" {
   name        = "Terraform Summer Playlist"
@@ -26,8 +42,8 @@ resource "spotify_playlist" "playlist" {
   public      = true
 
   tracks = [
-    data.spotify_search_track.by_artist.tracks[0].id,
-    data.spotify_search_track.by_artist.tracks[1].id,
-    data.spotify_search_track.by_artist.tracks[2].id,
+    for i in range(0, length(data.spotify_search_track.by_artist.tracks)) : data.spotify_search_track.by_artist.tracks[i].id
   ]
 }
+
+
