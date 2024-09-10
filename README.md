@@ -4,12 +4,12 @@ This repo is a companion repo to the [Create a Spotify Playlist with Terraform](
 It contains Terraform configuration you can use to learn how to create a playlist on Spotify.
 
 ## My Terraform Playlist
-**This updated repo contains terraform code to create spotify playlists**
-    - [click to fork this repo](https://github.com/michaelkedey/learn-terraform-spotify/fork)
-    - to clone this repo
-        ```
-        git clone https://github.com/michaelkedey/learn-terraform-spotify.git
-        ``` 
+**This updated repo contains terraform code to create spotify playlists**   
+- [click to fork this repo](https://github.com/michaelkedey/learn-terraform-spotify/fork)
+- to clone this repo
+    ```
+    git clone https://github.com/michaelkedey/learn-terraform-spotify.git
+    ``` 
 - I have deffined playlists in different forms
     - by artist name
     - by album and artist name
