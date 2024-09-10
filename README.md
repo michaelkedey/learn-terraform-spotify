@@ -15,19 +15,31 @@ It contains Terraform configuration you can use to learn how to create a playlis
     - [nigeria.tfvars](./env/tfvars/nigeria.tfvars) contains values for creating playlists of one of my favorite nigerian musicians
     - [us.tfvars](./env/tfvars/us.tfvars) contains values for creating playlists of my favorite american rapper
     - feel free to add your own `.tfvars` file or modify the existing one. If you fail to specify a `var-file` during `terraform apply`, default playlists will be created for you.
-- **To run this code with teh default values, run**
+- **To run this code without a remote backend configuration,modify the `backend` configuration in the [providers.tf](./providers.tf) file by commenting the s3 configuration.**
+    - open the [run.sh](./run.sh) script and replace 
+        ```
+        terraform init --backend-config="./env/backend/backend.tfvars"
+        ```
+      with
+        ```
+        terraform init
+        ```
+    - execute the [run.sh](./run.sh) script
+        ```
+        ./run.sh
+        ``` 
+- **To run this code manually with the default values, run**
     ```
     terraform init
     terraform plan
     terraform apply
     ```
-- **To run with different values however, run**
+- **To run with different values (eg. nigeria.tfvars) however, run**
     ```
     terraform init
     terraform plan -var-file=env/tfvars/nigeria.tfvars
     terraform apply -var-file=env/tfvars/nigeria.tfvars
     ```
-- **You need to moify the `backend` configuration in the [providers.tf](./providers.tf) file by commenting the s3 configuration.
 
 - Directory structure
 ```plaintext

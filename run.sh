@@ -11,6 +11,7 @@ find . -type d -exec bash -c 'cd "{}" && [[ -n "$(find . -name "*.tf")" ]] && te
 # initialize backend
 terraform init --backend-config="./env/backend/backend.tfvars"
 
+
 #validate and apply the code
 terraform validate
 
