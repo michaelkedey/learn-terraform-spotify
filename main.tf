@@ -1,49 +1,27 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-terraform {
-  required_providers {
-    spotify = {
-      version = "~> 0.2.6"
-      source  = "conradludgate/spotify"
-    }
-  }
 
-  backend "s3" {
-    
-  }
+module "album_playlist" {
+  source = "./modules/album_playlist"
+  album = var.album
+  artist_name = var.artist_name
 }
 
-provider "spotify" {
-  api_key = var.spotify_api_key
+module "artist_playlist" {
+  source = "./modules/artist_playlist"
+  artist_name = var.artist_name
 }
 
-data "spotify_search_track" "by_artist" {
-  artist = "m.anifest"
-  #  album = "Jolene"
-  #  name  = "Early Morning Breeze"
+module "song_playlist" {
+  source = "./modules/song_playlist"
+  fav_song = var.fav_song
+  artist_name = var.artist_name
 }
 
-# resource "spotify_playlist" "playlist" {
-#   name        = "Terraform Summer Playlist"
-#   description = "This playlist was created by Terraform"
-#   public      = true
 
-#   tracks = [
-#     data.spotify_search_track.by_artist.tracks[0].id,
-#     data.spotify_search_track.by_artist.tracks[1].id,
-#     data.spotify_search_track.by_artist.tracks[2].id,
-#   ]
-# }
 
-resource "spotify_playlist" "playlist" {
-  name        = "Terraform Summer Playlist"
-  description = "This playlist was created by Terraform"
-  public      = true
 
-  tracks = [
-    for i in range(0, length(data.spotify_search_track.by_artist.tracks)) : data.spotify_search_track.by_artist.tracks[i].id
-  ]
-}
+
 
 
