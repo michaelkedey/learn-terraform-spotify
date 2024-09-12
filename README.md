@@ -52,32 +52,33 @@ $ tree
 .
 |-- LICENSE
 |-- README.md
-|-- env
-|   |-- backend
-|   |   `-- backend.tfvars
-|   `-- tfvars
-|       |-- ghana.tfvars
-|       |-- nigeria.tfvars
-|       `-- us.tfvars
-|-- main.tf
-|-- modules
-|   |-- album_playlist
-|   |   |-- locals.tf
-|   |   |-- playlist.tf
-|   |   `-- variables.tf
-|   |-- artist_playlist
-|   |   |-- locals.tf
-|   |   |-- playlist.tf
-|   |   `-- variables.tf
-|   `-- song_playlist
-|       |-- locals.tf
-|       |-- playlist.tf
-|       `-- variables.tf
-|-- outputs.tf
-|-- providers.tf
-|-- run.sh
-|-- terraform.tfvars
-`-- variables.tf
+`-- src
+    |-- env
+    |   |-- backend
+    |   |   `-- backend.tfvars
+    |   `-- tfvars
+    |       |-- ghana.tfvars  
+    |       |-- nigeria.tfvars
+    |       `-- us.tfvars     
+    |-- main.tf
+    |-- modules
+    |   |-- album_playlist
+    |   |   |-- locals.tf 
+    |   |   |-- playlist.tf 
+    |   |   `-- variables.tf
+    |   |-- artist_playlist 
+    |   |   |-- locals.tf
+    |   |   |-- playlist.tf
+    |   |   `-- variables.tf
+    |   `-- song_playlist
+    |       |-- locals.tf
+    |       |-- playlist.tf
+    |       `-- variables.tf
+    |-- outputs.tf
+    |-- providers.tf
+    |-- run.sh
+    |-- terraform.tfvars
+    `-- variables.tf
 
-7 directories, 21 files
+8 directories, 21 files
 ```
