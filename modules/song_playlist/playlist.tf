@@ -15,9 +15,9 @@ data "spotify_search_track" "by_name" {
 }
 
 resource "spotify_playlist" "playlist3" {
-  name        = local.playlist_name
-  description = local.playlist_description
-  public      = local.enable_public
+  name        = var.playlist_name
+  description = var.playlist_description
+  public      = var.enable_public
 
   tracks = [
     for i in range(0, length(data.spotify_search_track.by_name.tracks)) : data.spotify_search_track.by_name.tracks[i].id

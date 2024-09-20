@@ -10,13 +10,13 @@ terraform {
 
 data "spotify_search_track" "by_artist" {
   artist = var.artist_name
-  limit  = local.songs_limit
+  limit  = var.songs_limit
 }
 
 resource "spotify_playlist" "playlist2" {
-  name        = local.playlist_name
-  description = local.playlist_description
-  public      = local.enable_public
+  name        = var.playlist_name
+  description = var.playlist_description
+  public      = var.enable_public
 
   tracks = [
     for i in range(0, length(data.spotify_search_track.by_artist.tracks)) : data.spotify_search_track.by_artist.tracks[i].id

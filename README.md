@@ -20,7 +20,12 @@ It contains Terraform configuration you can use to learn how to create a playlis
     - [nigeria.tfvars](./env/tfvars/nigeria.tfvars) contains values for creating playlists of one of my favorite nigerian musicians
     - [us.tfvars](./env/tfvars/us.tfvars) contains values for creating playlists of my favorite american rapper
     - feel free to add your own `.tfvars` file or modify the existing one. If you fail to specify a `var-file` during `terraform apply`, default playlists will be created for you.
-- **To run this code without a remote backend configuration,modify the `backend` configuration in the [providers.tf](./providers.tf) file by commenting the s3 configuration.**
+- **To run this code, clone the repo and run the script**
+    ```
+    git clone https://github.com/michaelkedey/learn-terraform-spotify.git
+    cd learn-terraform-spotify
+    ```
+- **To run this code without a remote backend configuration, modify the `backend` configuration in the [providers.tf](./providers.tf) file by commenting the s3 configuration.**
     - open the [run.sh](./run.sh) script and replace 
         ```
         terraform init --backend-config="./env/backend/backend.tfvars"
@@ -33,6 +38,9 @@ It contains Terraform configuration you can use to learn how to create a playlis
         ```
         ./run.sh
         ``` 
+- this [script](./run.sh) will create a playlist with the detials specified in the variable file of choice.
+  -  You can modify the [variable files](./tfvars/) to suit your needs.
+
 - **To run this code manually with the default values, run**
     ```
     terraform init
@@ -52,33 +60,31 @@ $ tree
 .
 |-- LICENSE
 |-- README.md
-`-- src
-    |-- env
-    |   |-- backend
-    |   |   `-- backend.tfvars
-    |   `-- tfvars
-    |       |-- ghana.tfvars  
-    |       |-- nigeria.tfvars
-    |       `-- us.tfvars     
-    |-- main.tf
-    |-- modules
-    |   |-- album_playlist
-    |   |   |-- locals.tf 
-    |   |   |-- playlist.tf 
-    |   |   `-- variables.tf
-    |   |-- artist_playlist 
-    |   |   |-- locals.tf
-    |   |   |-- playlist.tf
-    |   |   `-- variables.tf
-    |   `-- song_playlist
-    |       |-- locals.tf
-    |       |-- playlist.tf
-    |       `-- variables.tf
-    |-- outputs.tf
-    |-- providers.tf
-    |-- run.sh
-    |-- terraform.tfvars
-    `-- variables.tf
+|-- env
+|   |-- backend
+|   |   `-- backend.tfvars
+|   `-- tfvars
+|       |-- ghana.tfvars  
+|       |-- nigeria.tfvars
+|       `-- us.tfvars     
+|-- locals.tf
+|-- main.tf
+|-- modules
+|   |-- README.md       
+|   |-- album_playlist  
+|   |   |-- playlist.tf 
+|   |   `-- variables.tf
+|   |-- artist_playlist
+|   |   |-- playlist.tf
+|   |   `-- variables.tf
+|   `-- song_playlist
+|       |-- playlist.tf
+|       `-- variables.tf
+|-- outputs.tf
+|-- providers.tf
+|-- run.sh
+|-- terraform.tfvars
+`-- variables.tf
 
-8 directories, 21 files
+7 directories, 20 files
 ```

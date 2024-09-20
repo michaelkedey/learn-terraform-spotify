@@ -16,11 +16,12 @@ variable "artist_name" {
 
 variable "fav_song" {
   type        = string
-  description = "Your favorite artist name"
+  description = "Your favorite artist's music"
   default     = "no shortcut to heaven"
 }
 
 variable "album" {
-  default = "Madina To The Universe"
-  type    = string
+  default     = "Madina To The Universe"
+  type        = string
+  description = "Your favorite artits's album"
 }
