@@ -1,0 +1,1 @@
+{"last_found_secrets": [{"name": "Spotify Keys - commit://staged/.env", "match": "01e6754882e658c67b1bfbb75fbd7fc4f20e310ba7cce0be99706aca637eeaac"}, {"name": "Generic High Entropy Secret - commit://staged/terraform.tfvars", "match": "f5db2baf50c85abb0e34a81b2e2de7eceb4f364701a0042d72d39e0d14d70f84"}]}
